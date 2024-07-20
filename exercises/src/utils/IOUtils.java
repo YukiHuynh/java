@@ -1,34 +1,71 @@
 package utils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import bean.EmptyFileException;
+
 public class IOUtils {
-	private Scanner ip = new Scanner(System.in);
+	private static Scanner ip = new Scanner(System.in);
 	
-	private IOUtils() {
+	public static DivideValues inputValues() {
+		System.out.println("Enter dividend:");
+        while (!ip.hasNextInt()) {
+            System.out.println("Invalid dividend.");
+            ip.next();
+        }
+        int dividend = ip.nextInt();
+
+        System.out.println("Enter divisor:");
+        while (!ip.hasNextInt()) {
+            System.out.println("Invalid divisor.");
+            ip.next();
+        }
+        int divisor = ip.nextInt();
+        
+        return new DivideValues(dividend, divisor);
 	}
 	
-	public void input(int numb1, int numb2, int num3) {
-		System.out.println("Enter 1st number ");
-		while(!ip.hasNextInt()) {
-			System.out.println("Invalid input.");
-			ip.next();
+	public static int  inputInterger() {
+		int n;
+		System.out.println("Enter an integer:");
+		while(true) {
+			if(ip.hasNextInt()) {
+				n = ip.nextInt();
+				if( n > 0) {
+					break;
+				} else {
+					System.out.println("Invalid input.");
+					ip.next();
+				}
+			}
 		}
-		int n1 = ip.nextInt();
-		
-		System.out.println("Enter 2nd number: ");
-		while(!ip.hasNextInt()) {
-			System.out.println("Invalid input.");
-			ip.next();
-		}
-		int n2 = ip.nextInt();
-		
-		System.out.println("Enter 3rd number: ");
-		while(!ip.hasNextInt()) {
-			System.out.println("Invalid input.");
-			ip.next();
-		}
-		int n3 = ip.nextInt();
-		ip.close();
+		return n;
 	}
+	
+	public static void readFile(String fileName) throws FileNotFoundException {
+		File file = new File(fileName);
+		Scanner ipF= new Scanner(file);
+		
+		while(ipF.hasNextLine()) {
+			String line = ipF.nextLine();
+			System.out.println(line);
+		}
+		
+		ipF.close();
+	}
+	
+	public static void checkFileNotEmpty (String fileName) throws FileNotFoundException, EmptyFileException {
+		File file = new File(fileName);
+		Scanner ipF = new Scanner(file);
+		
+		if(!ipF.hasNextLine()) {
+			ipF.close();
+			throw new EmptyFileException("File is empty.");
+		}
+		
+		ipF.close();
+	}
+	
 }
