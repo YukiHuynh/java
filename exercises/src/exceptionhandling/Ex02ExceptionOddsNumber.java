@@ -5,7 +5,7 @@ import utils.IOUtils;
 public class Ex02ExceptionOddsNumber {
 
 	public static void main(String[] args) {
-		int number = IOUtils.inputInteger(null);
+		int number = IOUtils.inputInteger("Enter an integer:");
 		tryNumber(number);
 	}
 	

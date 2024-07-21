@@ -1,6 +1,6 @@
 package bean;
 
-public class Rectangle {
+public class Rectangle extends Shape{
 
 	private int width;
 	private int height;
@@ -32,6 +32,11 @@ public class Rectangle {
 	@Override
 	public String toString() {
 		return "Regtangle [width=" + width + ", height=" + height + "]";
+	}
+	
+	@Override
+	public double getArea() {
+		return width * height;
 	}
 	
 }

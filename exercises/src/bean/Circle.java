@@ -1,11 +1,10 @@
 package bean;
 
-public class Circle {
+public class Circle extends Shape{
 
 	private int radius;
 	
 	public Circle() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Circle(int radius) {
@@ -24,5 +23,16 @@ public class Circle {
 	public String toString() {
 		return "Circle [radius=" + radius + "]";
 	}
+	
+	@Override
+	public double getArea() {
+		return Math.PI * Math.pow(radius, 2);
+	}
+	
+	@Override
+	public double getPerimeter() {
+		return Math.PI * radius * 2;
+	}
+	
 	
 }
