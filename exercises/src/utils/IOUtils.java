@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import bean.EmptyFileException;
@@ -29,9 +30,9 @@ public class IOUtils {
         return new DivideValues(dividend, divisor);
 	}
 	
-	public static int  inputInterger() {
+	public static int  inputInteger(String message) {
 		int n;
-		System.out.println("Enter an integer:");
+		System.out.println(message);
 		while(true) {
 			if(ip.hasNextInt()) {
 				n = ip.nextInt();
@@ -70,6 +71,7 @@ public class IOUtils {
 		ipF.close();
 	}
 	
+	// 
 	public static List<Integer> readNumberFromUser() {
 		List <Integer> numbers = new ArrayList< >();
 		
@@ -85,6 +87,7 @@ public class IOUtils {
 		return numbers;
 	}
 	
+	// Input a sentence from the user, this sentence cannot be empty
 	public static String inputSentence () {
 		System.out.println("Input a sentence: ");
 		String text = ip.nextLine();
@@ -98,4 +101,64 @@ public class IOUtils {
 		}
 		return text;
 	}
+	
+	// Input an array of integers from the user
+	public static int[] IntegerArrayInput() {
+		System.out.println("Enter numbers of integer array: ");
+		int intSize = ip.nextInt();
+		
+		int[] intArray = new int[intSize];
+		System.out.println("Input array's elements: ");
+		
+		for(int i = 0; i < intSize; i++) {
+			while(true) {
+				try {
+					intArray[i] = ip.nextInt();
+					break;
+				} catch (Exception e) {
+					System.out.println("Invalid input! Please enter an INTEGER.");
+					ip.next();
+				}
+			}
+		}
+		return intArray;
+		
+	}
+	
+	// Input and array of strings from the user
+	public static String[] StringArrayInput() {
+		System.out.println("Enter numbers of string array: ");
+		int strSize = ip.nextInt();
+		ip.nextLine();
+		
+		System.out.println("Input array's elements: ");
+		String[] strArray = new String[strSize];
+		for(int i = 0; i < strSize; i++) {
+			while(true) {
+				String input = ip.nextLine();
+				if(!input.trim().isEmpty()) {
+					strArray[i] = input;
+					break;
+				} else {
+					System.out.println("Invalid input! String cannot be empty!");
+				}
+				
+			}
+		}
+		return strArray;
+		
+	}
+	
+	// Random an array of integer from 0 to 99
+	public static int[] randomArray() {
+		int n = inputInteger("Enter number of elements to random:");
+		int[] array = new int[n];
+		Random rd = new Random();
+		
+		for (int i = 0; i < n; i++) {
+			array[i] = rd.nextInt(100);
+		}
+		return array;
+	}
+	
 }
