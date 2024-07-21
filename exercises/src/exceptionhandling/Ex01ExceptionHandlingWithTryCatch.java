@@ -1,9 +1,9 @@
-package exeptionhandling;
+package exceptionhandling;
 
 import utils.DivideValues;
 import utils.IOUtils;
 
-public class Ex01ExeptionHandlingWithTryCatch {
+public class Ex01ExceptionHandlingWithTryCatch {
 	
 	public static void main(String[] args) {
 		try {

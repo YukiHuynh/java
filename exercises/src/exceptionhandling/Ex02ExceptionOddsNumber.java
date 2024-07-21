@@ -1,8 +1,8 @@
-package exeptionhandling;
+package exceptionhandling;
 
 import utils.IOUtils;
 
-public class Ex02ExeptionOddsNumber {
+public class Ex02ExceptionOddsNumber {
 
 	public static void main(String[] args) {
 		int number = IOUtils.inputInterger();

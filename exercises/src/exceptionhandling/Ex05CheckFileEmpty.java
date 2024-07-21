@@ -1,4 +1,4 @@
-package exeptionhandling;
+package exceptionhandling;
 
 import java.io.FileNotFoundException;
 

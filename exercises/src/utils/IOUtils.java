@@ -2,6 +2,8 @@ package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import bean.EmptyFileException;
@@ -68,4 +70,32 @@ public class IOUtils {
 		ipF.close();
 	}
 	
+	public static List<Integer> readNumberFromUser() {
+		List <Integer> numbers = new ArrayList< >();
+		
+		System.out.println("How many number you want to imput?");
+		int count = ip.nextInt();
+		
+		System.out.println("Input intergers: ");
+		for(int i = 0; i < count; i++) {
+			int num = ip.nextInt();
+			numbers.add(num);
+		}
+		ip.close();
+		return numbers;
+	}
+	
+	public static String inputSentence () {
+		System.out.println("Input a sentence: ");
+		String text = ip.nextLine();
+		while(true) {
+			if(text.isEmpty()) {
+				break;
+			} else {
+				System.out.println("Invalid input!");
+				ip.next();
+			}
+		}
+		return text;
+	}
 }
