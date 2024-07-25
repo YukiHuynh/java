@@ -9,16 +9,16 @@ public class Ex01ToEx04 {
 
 	public static void main(String[] args) {
 		// Ex01
-		Person person1 = new Person("Nguyen", 29);
-		Person person2 = new Person("Yuki", 30);
+		Person person1 = new Person("Nguyen", "Huynh", 29);
+		Person person2 = new Person("Yuki","Huynh", 30);
 		
-		System.out.println(person1.getName() + " is " + person1.getAge() + " years old.");
-		System.out.println(person2.getName() + " is " + person2.getAge() + " years old.");
+		System.out.println(person1.getFirstName() + " is " + person1.getAge() + " years old.");
+		System.out.println(person2.getFirstName() + " is " + person2.getAge() + " years old.");
 		
 		person1.setAge(31);
-		person2.setName("Vince");
-		System.out.println(person1.getName() + " is " + person1.getAge() + " now years old.");
-		System.out.println(person2.getName() + " is " + person2.getAge() + " years old.");
+		person2.setFirstName("Vince");
+		System.out.println(person1.getFirstName() + " is " + person1.getAge() + " now years old.");
+		System.out.println(person2.getFirstName() + " is " + person2.getAge() + " years old.");
 		System.out.println("=============================================================\n");
 		
 		// Ex02
