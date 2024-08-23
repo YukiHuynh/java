@@ -3,6 +3,7 @@ package utils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,6 +12,42 @@ import bean.EmptyFileException;
 
 public class IOUtils {
 	private static Scanner ip = new Scanner(System.in);
+	
+	public static int triangleSide(String prompt, Scanner ip) {
+		int side;
+        while (true) {
+            System.out.println(prompt);
+            try {
+                side = ip.nextInt();
+                if (side > 0) {
+                    return side;
+                } else {
+                    System.out.println("Input must be a positive integer.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter an integer.");
+                ip.next(); // Clear the invalid input
+            }
+        }
+    }
+	
+	public static int checkInteger() {
+		int n = 0;
+		System.out.println("Input an integer:");
+		while (true) {
+			if (ip.hasNextInt()) {
+				n = ip.nextInt();
+				if (n > 0) {
+					System.out.println(n + " là số nguyên dương.");
+				} else {
+					System.out.println(n + " là số nguyên âm.");
+				}
+			} else {
+				System.out.println("Invalid Input.");
+				ip.nextLine();
+			}
+		}
+	}
 	
 	public static DivideValues inputValues() {
 		System.out.println("Enter dividend:");
@@ -30,7 +67,7 @@ public class IOUtils {
         return new DivideValues(dividend, divisor);
 	}
 	
-	public static int  inputInteger(String message) {
+	public static int inputInteger(String message) {
 		int n;
 		System.out.println(message);
 		while(true) {

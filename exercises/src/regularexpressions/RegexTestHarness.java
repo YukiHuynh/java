@@ -5,8 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexTestHarness {
-
+	private final String REGEX = "\\d";
 	public static void main(String[] args) {
+
 		Console console = System.console();
 		if(console == null) {
 			System.err.println("No console.");
