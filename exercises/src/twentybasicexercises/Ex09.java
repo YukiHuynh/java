@@ -22,6 +22,7 @@ public class Ex09 {
 				ip.nextLine();
 			}
 		}
+		ip.close();
 		
 		int result = fibonacci(n);
 		System.out.println("Fibonacci number of n = " + n + " is: " + result);
@@ -32,7 +33,7 @@ public class Ex09 {
 		
 		if(n == 0 || n == 1) { return 1; }
 		int a = 1, b = 1, c = 1;
-		for(int i = 2; n <= n; i++) {
+		for(int i = 2; i <= n; i++) {
 			c = a + b;
 			a = b;
 			b = c;

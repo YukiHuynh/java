@@ -22,6 +22,7 @@ public class WeekdayCalculator {
 				System.out.println("Invalid date format. Please try again.");
 			}
 		}
+		ip.close();
 		
 		DayOfWeek dayOfWeek = date.getDayOfWeek();
 		System.out.println(date.format(DateTimeFormatter.ofPattern("dd MMMM yyyy")) + " is a " + dayOfWeek);

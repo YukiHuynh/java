@@ -13,6 +13,28 @@ import bean.EmptyFileException;
 public class IOUtils {
 	private static Scanner ip = new Scanner(System.in);
 	
+	public static int inpitN() {
+		int n;
+		do {
+			System.out.println("Enter a positive interger n: ");
+			while (!ip.hasNextInt()) {
+				System.out.println("Invalid input.");
+				ip.next();
+			}
+			n = ip.nextInt();
+		} while (n <= 0);
+		return n;
+	}
+	
+	public static int[] randomArray(int n) {
+		int[] array = new int[n];
+		Random rd = new Random();
+		for(int i = 0; i < n; i++) {
+			array[i] = rd.nextInt(-100, 100);
+		}
+		return array;
+	}
+	
 	public static int triangleSide(String prompt, Scanner ip) {
 		int side;
         while (true) {
