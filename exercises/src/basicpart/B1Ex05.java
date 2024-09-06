@@ -17,6 +17,15 @@ public class B1Ex05 {
 		System.out.println("Multiply = " + (num1 * num2));
 		System.out.println("Divide = " + (num1 / num2));
 		ip.close();
+		
+		int n = 7;
+        int sum = 0;
+        for(int i = 1; i <= n; i++){
+            sum += Math.pow(i,2);
+        }
+        System.out.println(sum);
+        
+        
 	}
 	
 }
