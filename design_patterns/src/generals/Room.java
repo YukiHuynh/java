@@ -20,6 +20,10 @@ public class Room extends MapSite{
 	@Override
 	public void enter() {
 		// Implementation for entering the room
+	}
+
+	public int getRoomNumber() {
+		return roomNumber;
 	} 
 	
 }

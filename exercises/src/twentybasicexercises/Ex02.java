@@ -18,7 +18,6 @@ public class Ex02 {
 				ip.nextLine();
 			}
 		}
-		
 	}
 	
 	private static final String[] units = { 
