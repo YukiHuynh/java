@@ -12,12 +12,12 @@ public class Ex02InsertionStringDemo {
 		// String[] elements = { null, "a123", null, null, "z45", "c1", null, "k5", "d28", null };
 		String[] elements = {"a123", "z45", "c1", "k5", "d28"};
 		String ss1 = "a123";
-		String ss2 = "b123";
+		String ss2 = "z45";
 		System.out.println(ss1.compareTo(ss2));
 		System.out.println("elements: " + Arrays.toString(elements));
 		System.out.println("\n================================================================\n");
 		
-		insertionSort(elements, (s1, s2) -> s1.compareTo(s2));
+		insertionSort(elements, (s1, s2) -> s2.compareTo(s1));
 		System.out.println("Insertion Sort non-null(asc) --> " + Arrays.toString(elements));
 		
 	}

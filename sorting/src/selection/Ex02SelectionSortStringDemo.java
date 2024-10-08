@@ -17,11 +17,13 @@ public class Ex02SelectionSortStringDemo {
 
 		// sorting null first asc
 		selectionSort(elements, (s1, s2) -> {
-			if (s1 == null)
+			if (s1 == null) {
 				return -1;
-
-			if (s2 == null)
+			}
+				
+			if (s2 == null) {
 				return 1;
+			}
 			return s1.compareTo(s2);
 		});
 
