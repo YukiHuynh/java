@@ -7,7 +7,6 @@ import bean.Item;
 
 public class DataModel {
 	
-	private static DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 	private DataModel() {
 	}
