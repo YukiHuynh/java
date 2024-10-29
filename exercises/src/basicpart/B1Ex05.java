@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class B1Ex05 {
 
 	public static void main(String[] args) {
+		
 		Scanner ip = new Scanner(System.in);
 		System.out.print("Input first number: ");
 		int num1 = ip.nextInt();
