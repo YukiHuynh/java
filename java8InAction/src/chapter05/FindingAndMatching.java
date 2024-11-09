@@ -1,0 +1,37 @@
+package chapter05;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import bean.Dish;
+
+public class FindingAndMatching {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// anyMatch()
+		if(menu.stream().anyMatch(Dish::isVegetarian)) {
+			System.out.println("The menu is (somewhat) vegetarian friendly!!\n");
+		}
+		
+		// allMatch()
+		String isHealthy = menu.stream().allMatch(d -> d.getCalories() < 1000) ? "Yes" : "No";
+		System.out.println(isHealthy);
+		
+		// findAny()
+		Optional<Dish> dish = menu.stream().filter(Dish::isVegetarian).findAny();
+		System.out.println("\n" + dish);
+		
+		// findFirst()
+		List<Integer> someNumbers = Arrays.asList(1, 2, 3, 4, 5);
+		Optional<Integer> findSquareDivisibleByThree = someNumbers.stream().map(x -> x * x)
+																		   .filter(x -> x % 3 == 0)
+																		   .findFirst();
+		System.out.println("\n" + findSquareDivisibleByThree);
+		
+	}
+	
+}

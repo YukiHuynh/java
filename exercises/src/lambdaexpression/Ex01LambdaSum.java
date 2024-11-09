@@ -1,5 +1,8 @@
 package lambdaexpression;
 
+import java.util.Arrays;
+import java.util.List;
+
 import lambdaexpression.bean.SumCalculator;
 
 public class Ex01LambdaSum {
@@ -11,6 +14,12 @@ public class Ex01LambdaSum {
 		
 		result = sumCalculator.sum(15, -35);
 		System.out.println("Sum (15, -35): " + result);
+		
+		List<String> str = Arrays.asList("a", "b", "A", "B");
+		// str.sort((s1, s2) -> s1.compareTo(s2));
+		str.sort(String::compareToIgnoreCase);
+		System.out.println(str);
+		
 	}
 	
 }
