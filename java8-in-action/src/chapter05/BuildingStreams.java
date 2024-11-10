@@ -1,0 +1,76 @@
+package chapter05;
+
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.function.IntSupplier;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+public class BuildingStreams {
+
+	public static void main(String[] args) {
+		
+		// Stream from values
+		Stream<String> stream = Stream.of("Java 8 ", "Lambdas ", "In ", "Action");
+		stream.map(String::toUpperCase).forEach(System.out::println);
+		
+		// empty stream
+		Stream<String> emptyStream = Stream.empty();
+		
+		// Stream from array
+		int[] number = {2, 3, 5, 7, 11, 13};
+		int sum = Arrays.stream(number).sum();
+		System.out.println("\n" + sum);
+		
+		// Stream from files
+		long uniqueWords = 0;
+		try(Stream<String> lines = 
+				Files.lines(Paths.get("data.txt"), Charset.defaultCharset())) {
+					uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" ")))
+							.distinct()
+							.count();
+				}
+				catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+		
+		// Quiz 5.4 fibonacci tuple with iterate 
+		Stream.iterate(new int[] {0, 1}, 
+							t -> new int[] {t[1], t[0] + t[1]})
+			  .limit(10)
+			  .forEach(t -> System.out.println("(" + t[0] + ", " + t[1] + ")"));
+		// Quiz 5.4 normal fibonacci iterate 
+		Stream.iterate(new int[] {0, 1}, 
+						t -> new int[] {t[1], t[0] + t[1]})
+			  .limit(10)
+			  .map(t -> t[0])
+			  .forEach(System.out::print);
+		
+		System.out.println("\n");
+		
+		// random stream of doubles with Stream.generate
+		Stream.generate(Math::random)
+			  .limit(5)
+			  .forEach(System.out::println);
+		System.out.println();
+		// Quiz 5.4 fibonacci with generate
+		IntSupplier fib = new IntSupplier() {
+			private int previous = 0;
+			private int current = 1;
+			@Override
+			public int getAsInt() {
+				int oldPrevious = this.previous;
+				int nextValue = this.previous + this.current;
+				this.previous = this.current;
+				this.current = nextValue;
+				return oldPrevious;
+			}
+		};
+		IntStream.generate(fib).limit(10).forEach(System.out::print);
+		
+	}
+	
+}
