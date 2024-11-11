@@ -1,0 +1,46 @@
+package chapter06;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import chapter06.Transaction.Currency;
+import static java.util.stream.Collectors.groupingBy;
+
+public class GroupingTransactions {
+
+	static List<Transaction> transactions = Transaction.transactions;
+	
+	public static void main(String[] args) {
+		
+		groupImperatively();
+		
+		System.out.println();
+		
+		groupFunctionally();
+		
+	}
+	
+	private static void groupImperatively() {
+		Map<Currency, List<Transaction>> transactionsByCurrencies = new HashMap<>();
+		for(Transaction transaction : transactions) {
+			Currency currency = transaction.getCurrency();
+			List<Transaction> transactionForCurrency = transactionsByCurrencies.get(currency);
+			if(transactionForCurrency == null) {
+				transactionForCurrency = new ArrayList<>();
+				transactionsByCurrencies.put(currency, transactionForCurrency);
+			}
+			transactionForCurrency.add(transaction);
+		}
+		
+		System.out.println(transactionsByCurrencies);
+	}
+	
+	private static void groupFunctionally() {
+		Map<Currency, List<Transaction>> transactionsByCurrencies = 
+				transactions.stream().collect(groupingBy(Transaction::getCurrency));
+		System.out.println(transactionsByCurrencies);
+	}
+	
+}
