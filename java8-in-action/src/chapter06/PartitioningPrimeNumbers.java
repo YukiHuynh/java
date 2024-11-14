@@ -1,0 +1,26 @@
+package chapter06;
+
+import static java.util.stream.Collectors.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.IntStream;
+
+public class PartitioningPrimeNumbers {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private boolean isPrime(int numbers) {
+		int nRoot = (int) Math.sqrt((double)numbers);
+		return IntStream.rangeClosed(2, nRoot)
+						.noneMatch(i -> numbers % i == 0);
+	}
+	
+	public Map<Boolean, List<Integer>> partitionPrimes(int numbers) {
+		return IntStream.range(2, numbers).boxed()
+						.collect(partitioningBy(number -> isPrime(numbers)));
+	}
+	
+}
