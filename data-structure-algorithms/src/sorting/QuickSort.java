@@ -20,6 +20,11 @@ public class QuickSort {
 		}
 
 	}
+	
+	public static int[] sortedArray(int[] array) {
+		quickSort(array, 0, array.length -1);
+		return array;
+	}
 
 	private static void quickSort(int[] array, int low, int high) {
 		if(low > high) return;
