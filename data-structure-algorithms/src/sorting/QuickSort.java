@@ -6,19 +6,19 @@ import utils.ArrayUtils;
 
 public class QuickSort {
 
-public static void main(String[] args) {
-		
-		int[] array = {64, 34, 25, 12, 22, 11, 90};
+	public static void main(String[] args) {
+
+		int[] array = { 64, 34, 25, 12, 22, 11, 90 };
 		System.out.println("Mảng ban đầu: ");
-		for(int element : array) {
+		for (int element : array) {
 			System.out.print(element + " ");
 		}
-		quickSort(array, 0, array.length -1);
+		quickSort(array, 0, array.length - 1);
 		System.out.println("\nMảng sau khi sắp xếp: ");
-		for(int element : array) {
+		for (int element : array) {
 			System.out.print(element + " ");
 		}
-		
+
 	}
 
 	private static void quickSort(int[] array, int low, int high) {
