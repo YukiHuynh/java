@@ -1,6 +1,6 @@
-package inheritance_2nd_example;
+package chapter2.abstraction;
 
-public class ArithmeticProgression extends Progression {
+public class ArithmeticProgression extends AbstractProgression {
 	
 	protected long increment;
 	
@@ -18,6 +18,7 @@ public class ArithmeticProgression extends Progression {
 		increment = stepsize;
 	}
 	
+	@Override
 	protected void advance() {
 		current += increment;
 	}

@@ -1,6 +1,6 @@
-package inheritance_2nd_example;
+package chapter2.abstraction;
 
-public class GeometricProgression extends Progression {
+public class GeometricProgression extends AbstractProgression {
 
 	protected long base;
 	
@@ -17,6 +17,7 @@ public class GeometricProgression extends Progression {
 		base = b;
 	}
 	
+	@Override
 	protected void advance() {
 		current *= base;
 	}

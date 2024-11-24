@@ -1,6 +1,6 @@
-package inheritance_2nd_example;
+package chapter2.abstraction;
 
-public class FibonacciProgression extends Progression {
+public class FibonacciProgression extends AbstractProgression {
 
 	protected long prev;
 	
@@ -13,6 +13,7 @@ public class FibonacciProgression extends Progression {
 		prev = second - first;
 	}
 	
+	@Override
 	protected void advance() {
 		long temp = prev;
 		prev = current;
