@@ -1,6 +1,6 @@
-package chapter07.list;
+package chapter07.list_and_iterator;
 
-public interface PositionList<E> {
+public interface PositionalList<E> extends Iterable<E> {
 
 	int size();
 	boolean isEmpty();

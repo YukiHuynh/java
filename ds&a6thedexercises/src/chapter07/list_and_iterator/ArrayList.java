@@ -1,4 +1,4 @@
-package chapter07.list;
+package chapter07.list_and_iterator;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

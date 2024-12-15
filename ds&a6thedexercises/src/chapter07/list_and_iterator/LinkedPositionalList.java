@@ -1,9 +1,29 @@
-package chapter07.list;
+package chapter07.list_and_iterator;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedPositionalList<E> implements PositionList<E> {
+public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
+	
+	
+	
+	public static void insertionSort(PositionalList<Integer> list) {
+		Position<Integer> marker = list.first();
+		while(marker != list.last()) {
+			Position<Integer> pivot = list.after(marker);
+			int value = pivot.getElement();
+			if(value > marker.getElement()) {
+				marker = pivot;
+			} else {
+				Position<Integer> walk = marker;
+				while(walk != list.first() && list.before(walk).getElement() > value) {
+					walk = list.before(walk);
+				}
+				list.remove(pivot);
+				list.addBefore(walk, value);
+			}
+		}
+	}
 
 	private static class Node<E> implements Position<E> {
 		private E element;
