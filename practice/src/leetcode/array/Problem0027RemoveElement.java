@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode.array;
 
-public class Problem27RemoveElement {
+public class Problem0027RemoveElement {
 
 	public int removeElement(int[] nums, int val) {
 		if(nums.length == 0) return 0;

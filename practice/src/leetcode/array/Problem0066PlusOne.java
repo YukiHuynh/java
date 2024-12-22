@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode.array;
 
-public class Problem66PlusOne {
+public class Problem0066PlusOne {
 	
 	public int[] plusOne(int[] digits) {
 		for(int i = digits.length - 1; i >= 0; i--) {

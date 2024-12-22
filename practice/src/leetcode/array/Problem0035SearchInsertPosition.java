@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode.array;
 
-public class Problem35SearchInsertPosition {
+public class Problem0035SearchInsertPosition {
 
 	public int searchInsert(int[] nums, int target) {
         int left = 0, right = nums.length -1;
