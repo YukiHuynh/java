@@ -80,7 +80,7 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 		return node;
 	}
 	
-	private Position<E> position(Node<E> node) {
+	private Position<E> positions(Node<E> node) {
 		if(node == header || node == trailer) {
 			return null;
 		}
@@ -99,24 +99,24 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 
 	@Override
 	public Position<E> first() {
-		return position(header.getNext());
+		return positions(header.getNext());
 	}
 
 	@Override
 	public Position<E> last() {
-		return position(trailer.getPrev());
+		return positions(trailer.getPrev());
 	}
 
 	@Override
 	public Position<E> before(Position<E> p) throws IllegalArgumentException {
 		Node<E> node = validate(p);
-		return position(node.getPrev());
+		return positions(node.getPrev());
 	}
 
 	@Override
 	public Position<E> after(Position<E> p) throws IllegalArgumentException {
 		Node<E> node = validate(p);
-		return position(node.getNext());
+		return positions(node.getNext());
 	}
 
 	private Position<E> addBetween(E e, Node<E> pred, Node<E> succ) {
@@ -196,7 +196,7 @@ public class LinkedPositionalList<E> implements PositionalList<E>, Iterable<E> {
 		}
 	}
 	
-	private class PositionIterable implements Iterable<Position<E>> {
+	public class PositionIterable implements Iterable<Position<E>> {
 		@Override
 		public Iterator<Position<E>> iterator() {
 			return new PositionIterator();

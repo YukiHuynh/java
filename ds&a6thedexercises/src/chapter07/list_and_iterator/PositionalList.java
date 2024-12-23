@@ -1,5 +1,7 @@
 package chapter07.list_and_iterator;
 
+import chapter07.list_and_iterator.LinkedPositionalList.PositionIterable;
+
 public interface PositionalList<E> extends Iterable<E> {
 
 	int size();
@@ -14,5 +16,7 @@ public interface PositionalList<E> extends Iterable<E> {
 	Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException;
 	E set(Position<E> p, E e) throws IllegalArgumentException;
 	E remove(Position<E> p) throws IllegalArgumentException;
-	
+	public default Iterable<Position<E>> positions() {
+		return new Iterable<Position<E>>();
+	}
 }
