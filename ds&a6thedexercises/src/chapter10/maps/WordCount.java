@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class WordCount {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		
-		Map<String, Integer> freq = new ChanHashMap<>();	// or any concrete map
+		Map<String, Integer> freq = (Map<String, Integer>) new ChainHashMap();	// or any concrete map
 		// scan input for words, using all nonletters as delimiters
 		Scanner doc = new Scanner(System.in).useDelimiter("[^a-zA-Z]+");
 		while(doc.hasNext()) {

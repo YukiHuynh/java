@@ -1,5 +1,7 @@
 package chapter11.binary_search_trees;
 
+import java.util.Iterator;
+
 import chapter07.list_and_iterator.Position;
 import chapter08_tree.AbstractBinaryTree;
 
@@ -269,6 +271,12 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		node.setRight(null);
 		node.setParent(node);						// our convention for defunct node
 		return temp;
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

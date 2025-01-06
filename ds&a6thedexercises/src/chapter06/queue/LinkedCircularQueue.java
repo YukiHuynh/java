@@ -1,6 +1,7 @@
 package chapter06.queue;
 
 import chapter03.linked_list.CircularlyLinkedList;
+import chapter07.list_and_iterator.Position;
 
 public class LinkedCircularQueue<E> implements CircularQueue<E> {
 	
@@ -40,6 +41,12 @@ public class LinkedCircularQueue<E> implements CircularQueue<E> {
 
 	@Override
 	public void enqueue() {
+	}
+
+	@Override
+	public void enqueue(Position<E> position) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

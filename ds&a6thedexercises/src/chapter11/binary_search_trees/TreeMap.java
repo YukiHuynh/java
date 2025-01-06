@@ -1,5 +1,6 @@
 package chapter11.binary_search_trees;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map.Entry;
 
@@ -289,8 +290,198 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
     	if(isExternal(p)) {						// key not found
     		rebalanceAccess(p);					// hook for balanced tree subclasses
     		return null;
+    	} else {
+    		V old = p.getElement().getValue();
+    		if(isInternal(left(p)) && isInternal(right(p))) {	// both children are internal
+    			Position<Entry<K, V>> replacement = treeMax(left(p));
+    			set(p, replacement.getElement());
+    			p = replacement;
+    		}	// now p has at most one child that is an internal node
+    		Position<Entry<K, V>> leaft = (isExternal(left(p)) ? left(p) : right(p));
+    		Position<Entry<K, V>> sib = sibling(leaft);
+    		remove(leaft);
+    		remove(p);					// sib is promoted in p's place
+    		rebalanceDelete(sib);		// hook for balanced tree subclasses
+    		return old;
     	}
-    	return null;
+    }
+    
+    // additional behaviors of the SortedMap interface
+
+    /**
+     * Returns the entry having the least key (or null if map is empty).
+     *
+     * @return entry with least key (or null if map is empty)
+     */
+    @Override
+    public Entry<K, V> firstEntry() {
+    	if(isEmpty()) {
+    		return null;
+    	}
+    	return treeMin(root()).getElement();
+    }
+    
+    /**
+     * Returns the entry having the greatest key (or null if map is empty).
+     *
+     * @return entry with greatest key (or null if map is empty)
+     */
+    @Override
+    public Entry<K, V> lastEntry() {
+    	if(isEmpty()) {
+    		return null;
+    	}
+    	return treeMax(root()).getElement();
+    }
+    
+    /**
+     * Returns the entry with least key greater than or equal to given key
+     * (or null if no such key exists).
+     *
+     * @return entry with least key greater than or equal to given (or null if no such entry)
+     * @throws IllegalArgumentException if the key is not compatible with the map
+     */
+    @Override
+    public Entry<K, V> ceilingEntry(K key) throws IllegalArgumentException {
+    	checkKey(key);				// may throw IllegalArgumentException
+    	Position<Entry<K, V>> p = treeSearch(root(), key);
+    	if(isInternal(p)) {
+    		return p.getElement();	// exact match
+    	}
+    	while(!isRoot(p)) {
+    		if(p == left(parent(p))) {
+    			return parent(p).getElement();	// parent has next greater key
+    		} else {
+    			p = parent(p);
+    		}
+    	}
+    	return null;				// no such ceiling exists
+    }
+    
+    /**
+     * Returns the entry with greatest key less than or equal to given key
+     * (or null if no such key exists).
+     *
+     * @return entry with greatest key less than or equal to given (or null if no such entry)
+     * @throws IllegalArgumentException if the key is not compatible with the map
+     */
+    @Override
+    public Entry<K, V> floorEntry(K key) throws IllegalArgumentException {
+    	checkKey(key);				// may throw IllegalArgumentException
+    	Position<Entry<K, V>> p = treeSearch(root(), key);
+    	if(isInternal(p)) {
+    		return p.getElement();	// exact match
+    	}
+    	while(!isRoot(p)) {
+    		if(p == right(parent(p))) {
+    			return parent(p).getElement();	// parent has next lesser key
+    		} else {
+    			p = parent(p);
+    		}
+    	}
+    	return null;				// no such floor exists
+    }
+    
+    /**
+     * Returns the entry with greatest key strictly less than given key
+     * (or null if no such key exists).
+     *
+     * @return entry with greatest key strictly less than given (or null if no such entry)
+     * @throws IllegalArgumentException if the key is not compatible with the map
+     */
+    @Override
+    public Entry<K, V> lowerEntry(K key) throws IllegalArgumentException {
+    	checkKey(key);								// may throw IllegalArgumentException
+    	Position<Entry<K, V>> p = treeSearch(root(), key);
+    	if(isInternal(p) && isInternal(left(p))) {
+    		return treeMax(left(p)).getElement();	// this is the predecessor to p
+    	}
+    	// otherwise, we had failed search, or match with no left child
+    	while(!isRoot(p)) {
+    		if(p == right(parent(p))) {
+    			return parent(p).getElement();		// parent has next lesser key
+    		} else {
+    			p = parent(p);
+    		}
+    	}
+    	return null;								// no such lesser key exists
+    }
+    
+    /**
+     * Returns the entry with least key strictly greater than given key
+     * (or null if no such key exists).
+     *
+     * @return entry with least key strictly greater than given (or null if no such entry)
+     * @throws IllegalArgumentException if the key is not compatible with the map
+     */
+    @Override
+    public Entry<K, V> higherEntry(K key) throws IllegalArgumentException {
+    	checkKey(key);
+    	Position<Entry<K, V>> p = treeSearch(root(), key);
+    	if(isInternal(p) && isInternal(right(p))) {
+    		return treeMin(right(p)).getElement();		// this is the successor to p
+    	}
+    	// otherwise, we had failed search, or match with no right child
+    	while(!isRoot(p)) {
+    		if(p == left(parent(p))) {
+    			return parent(p).getElement();
+    		} else {
+    			p = parent(p);							// parent has next lesser key
+    		}
+    	}
+    	return null;									// no such greater key exists
+    }
+    
+    // Support for iteration
+
+    /**
+     * Returns an iterable collection of all key-value entries of the map.
+     *
+     * @return iterable collection of the map's entries
+     */
+    @SuppressWarnings("unchecked")
+	@Override
+    public Iterable entrySet() {
+    	ArrayList<Entry<K, V>> buffer = new ArrayList<>(size());
+    	for(Position<Entry<K, V>> p : tree.inorder()) {
+    		if(isInternal(p)) {
+    			buffer.add(p.getElement());
+    		}
+    	}
+    	return buffer;
+    }
+    
+    /**
+     * Returns an iterable containing all entries with keys in the range from
+     * <code>fromKey</code> inclusive to <code>toKey</code> exclusive.
+     *
+     * @return iterable with keys in desired range
+     * @throws IllegalArgumentException if <code>fromKey</code> or <code>toKey</code> is not compatible with the map
+     */
+    @Override
+    public Iterable<Entry<K, V>> subMap(K fromKey, K toKey) throws IllegalArgumentException {
+    	checkKey(fromKey);
+    	checkKey(toKey);
+    	ArrayList<Entry<K, V>> buffer = new ArrayList<>(size());
+    	if(compare(fromKey, toKey) < 0) {
+    		subMapRecurse(fromKey, toKey, root(), buffer);
+    	}
+    	return buffer;
+    }
+    
+    private void subMapRecurse(K fromKey, K toKey, Position<Entry<K, V>> p, ArrayList<Entry<K, V>> buffer) {
+    	if(isInternal(p)) {
+    		// p's key is less than fromKey, so any relevant entries are to the right
+    		if(compare(p.getElement(), fromKey) < 0) {
+    			subMapRecurse(fromKey, toKey, right(p), buffer);
+    		} else {
+    			subMapRecurse(fromKey, toKey, left(p), buffer);	// first consider left subtree
+    			if(compare(p.getElement(), toKey) < 0) {	 	// p is within range
+    				buffer.add(p.getElement());					// so add it to buffer, and consider
+    				subMapRecurse(fromKey, toKey, right(p), buffer);	// right subtree as well
+    			}
+    		}
+    	}
     }
 	
     // Stubs for balanced search tree operations (subclasses can override)
@@ -324,6 +515,12 @@ public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
      */
     protected void rebalanceAccess(Position<Entry<K, V>> p) {
     }
+
+	@Override
+	public Iterable<K> setKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     
 }

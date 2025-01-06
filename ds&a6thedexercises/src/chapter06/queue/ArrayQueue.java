@@ -1,5 +1,6 @@
 package chapter06.queue;
 
+import chapter07.list_and_iterator.Position;
 
 public class ArrayQueue<E> implements Queue<E> {
 	
@@ -54,6 +55,12 @@ public class ArrayQueue<E> implements Queue<E> {
 
 	@Override
 	public void enqueue() {
+	}
+
+	@Override
+	public void enqueue(Position<E> position) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

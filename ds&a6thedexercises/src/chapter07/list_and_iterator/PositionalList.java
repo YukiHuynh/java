@@ -1,8 +1,10 @@
 package chapter07.list_and_iterator;
 
+import java.util.Iterator;
+
 import chapter07.list_and_iterator.LinkedPositionalList.PositionIterable;
 
-public interface PositionalList<E> extends Iterable<E> {
+public interface PositionalList<E> extends Iterable<E>{
 
 	int size();
 	boolean isEmpty();
@@ -17,6 +19,12 @@ public interface PositionalList<E> extends Iterable<E> {
 	E set(Position<E> p, E e) throws IllegalArgumentException;
 	E remove(Position<E> p) throws IllegalArgumentException;
 	public default Iterable<Position<E>> positions() {
-		return new Iterable<Position<E>>();
+		return new Iterable<Position<E>>() {
+
+			@Override
+			public Iterator<Position<E>> iterator() {
+				return null;
+			}
+		};
 	}
 }
