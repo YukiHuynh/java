@@ -1,0 +1,26 @@
+package chapter06;
+
+import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.*;
+import bean.Dish;
+
+public class Grouping {
+
+	static List<Dish> menu = Dish.menu;
+	enum CaloricLevel {DIET, NORMAL, FAT}
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Dishes grouped by type: " + groupDishesByType());
+		
+	}
+	
+	private static Map<Dish.Type, List<Dish>> groupDishesByType() {
+		return menu.stream().collect(groupingBy(Dish::getType));
+	}
+	
+	private static Map<C, V>
+	
+}

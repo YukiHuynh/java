@@ -1,0 +1,11 @@
+package chapter06;
+
+public class Transaction {
+
+	private final
+	
+	public enum Currency {
+		EUR, USD, JPY, GPB, CHF
+	}
+	
+}

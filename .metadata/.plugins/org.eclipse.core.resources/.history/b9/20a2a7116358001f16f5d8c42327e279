@@ -1,0 +1,33 @@
+package lesson06_exercises;
+
+import java.util.Scanner;
+
+public class Ex02PasswordValidation {
+
+	private static Scanner ip = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		System.out.println("Please enter your username: ");
+		String userName = ip.nextLine();
+		
+		System.out.println("Please enter your email address: ");
+		String emailAddress = ip.nextLine();
+		
+		while(true) {
+			try {
+				System.out.println("PLease enter your password: ");
+				String password = ip.nextLine();
+				validatePassword(password, userName, emailAddress);
+				System.out.println("Account created successfully.");
+				break;
+			} catch(Exception e) {
+				System.out.println("Error: " + e.getMessage());
+			}
+		}
+	}
+	
+	private static void validatePassword(String password, String userName, String emailAddress) {
+		
+	}
+	
+}

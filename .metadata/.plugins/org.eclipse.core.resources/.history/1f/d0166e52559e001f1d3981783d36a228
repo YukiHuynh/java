@@ -1,0 +1,27 @@
+package chapter05;
+
+import java.util.List;
+import static java.util.stream.Collectors.*;
+
+import java.util.Arrays;
+
+import bean.Dish;
+
+public class Mapping {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// Applying function to each elements
+		List<String> dishNames = menu.stream().map(Dish::getName).collect(toList());
+		System.out.println(dishNames + "\n");
+		
+		// Return a list of number of characters for each word
+		List<String> words = Arrays.asList("Java8", "Lambdas", "In", "Action");
+		List<String> wordLength = words.stream().map(String::length).collect(toList());
+		
+		
+	}
+	
+}

@@ -1,0 +1,22 @@
+package stack_and_queue.queue;
+
+public class Queue {
+
+	private int[] queueArray;			// Array to strore the elements of the queue
+	private int front;					// Front index of the queue
+	private int rear;					// Rear index of the queue
+	private final int capacity = 10000; // Maximum capacity of the queue
+	
+	// Constructor
+	public Queue() {
+	}
+
+	public Queue(int[] queueArray, int front, int rear) {
+		this.queueArray = queueArray;
+		this.front = front;
+		this.rear = rear;
+	}
+	
+	
+	
+}

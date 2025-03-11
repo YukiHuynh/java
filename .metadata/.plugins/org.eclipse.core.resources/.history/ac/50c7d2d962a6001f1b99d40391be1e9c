@@ -1,0 +1,60 @@
+package calculate_expression;
+
+import java.util.concurrent.*;
+
+public class ExpressionTree {
+	
+	// Tính toán song song
+	public double parallelCalculate(TreeNode node) throws ExecutionException, InterruptedException {
+		if(node == null) return 0;
+		if(!isOperator(node.getValue())) {
+			return Double.parseDouble(node.getValue());
+		}
+	}
+	
+	// Tính giá trị của biểu thức con tại nút gốc `node`
+	public double calculate(TreeNode node) {
+		
+		if(node == null) {
+			throw new IllegalArgumentException("Node cannot be null");
+		}
+		
+		// Nếu nút không phải là toán tử (nó là toán hạng), trả về giá trị số
+		if(!isOperator(node.getValue())) {
+			return Double.parseDouble(node.getValue());
+		}
+		
+		// Nút là toán tử, tính giá trị của các nhánh con
+		double leftValue = calculate(node.getLeft());
+		double rightValue = calculate(node.getRight());
+		
+		// Thực hiện phép toán
+		return applyOperator(node.getValue(), leftValue, rightValue);
+		
+	}
+
+	private boolean isOperator(String value) {
+		return "+".equals(value) || "-".equals(value) || "*".equals(value) || "/".equals(value);
+	}
+	
+	private double applyOperator(String operator, double left, double right) {
+		switch(operator) {
+		case "+":
+			return left + right;
+		case "-":
+			return left - right;
+		case "*":
+			return left * right;
+		case "/":
+			if(right == 0) {
+				throw new ArithmeticException("Division by zero");
+			}
+			return left / right;
+		default:
+			throw new IllegalArgumentException("Invalid operator: " + operator);
+		}
+	}
+	
+	
+	
+}

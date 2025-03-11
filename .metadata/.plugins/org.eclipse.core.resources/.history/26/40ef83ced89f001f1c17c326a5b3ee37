@@ -1,0 +1,21 @@
+package chapter06;
+
+import java.util.List;
+
+import bean.Dish;
+
+public class Summarizing {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		long howManyDishes = menu.stream().count();
+		
+	}
+	
+	private long howManyDishes() {
+		return menu.
+	}
+	
+}

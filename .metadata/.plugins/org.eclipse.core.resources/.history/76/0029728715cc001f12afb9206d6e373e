@@ -1,0 +1,91 @@
+package chapter11.binary_search_trees;
+
+import java.util.Comparator;
+import java.util.Map.Entry;
+
+import chapter07.list_and_iterator.Position;
+import chapter10.maps.AbstractSortedMap;
+import chapter08_tree.LinkedBinaryTree;
+
+public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
+	
+	public int getHeight() {
+		return getHeight(this.root());
+	}
+	
+	private int getHeight(Position<Entry<K, V>> node) {
+		if(isExternal(node)) {
+			return 0;
+		}
+		return 1 + Math.max(getHeight(right(node)), getHeight(left(node)));
+	}
+	
+	//---------------- nested BalanceableBinaryTree class ----------------
+	
+	/**
+	 * A specialized version of the LinkedBinaryTree class with
+	 * additional mutators to support binary search tree operations, and
+	 * a specialized node class that includes an auxiliary instance
+	 * variable for balancing data.
+	 */
+	protected static class BalanceableBinaryTree<K, V> extends LinkedBinaryTree<Entry<K, V>> {
+		// -------------- nested BSTNode class --------------
+		// this extends the inherited LinkedBinaryTree.Node class
+		protected static class BSTNode<E> extends Node<E> {
+			int aux = 0;
+
+			BSTNode(E e, Node<E> parent, Node<E> leftChild, Node<E> rightChild) {
+				super(e, parent, leftChild, rightChild);
+			}
+
+			public int getAux() {
+				return aux;
+			}
+
+			public void setAux(int value) {
+				aux = value;
+			}
+		} // --------- end of nested BSTNode class ---------
+
+		// positional-based methods related to aux field
+		public int getAux(Position<Entry<K, V>> p) {
+			return ((BSTNode<Entry<K, V>>) p).getAux();
+		}
+		
+		public void setAux(Position<Entry<K, V>> p, int value) {
+			((BSTNode<Entry<K, V>>) p).setAux(value);
+		}
+		
+		// Override node factory function to produce a BSTNode (rather than a Node)
+		@Override
+		protected Node<Entry<K, V>> createNode(Entry<K, V> element, Node<Entry<K, V>> parent, Node<Entry<K, V>> left,
+				Node<Entry<K, V>> right) {
+			return new BSTNode(element, parent, left, right);
+		}
+	}
+	
+	// To represent the underlying tree structure, we use a specialized subclass of the
+	// LinkedBinaryTree class that we name BalanceableBinaryTree (see Section 11.2).
+	protected BalanceableBinaryTree<K, V> tree = new BalanceableBinaryTree<>();
+	
+	/** Constructs an empty map using the natural ordering of keys. */
+	public TreeMap() {
+		super();						// the AbstractSortedMap constructor
+		tree.addRoot(null);				// create a sentinel leaf as root
+	}
+	/** Constructs an empty map using the given comparator to order keys. */
+	public TreeMap(Comparator<K> comp) {
+		super(comp);					// the AbstractSortedMap constructor
+		tree.addRoot(null);				// create a sentinel leaf as root
+	}
+	/** Returns the number of entries in the map. */
+	public int size() {
+		return (tree.size() - 1) / 2;	// only internal nodes have entries
+	}
+	/** Utility used when inserting a new entry at a leaf of the tree */
+	private void expandExternal(Position<Entry<K, V>> p, Entry<K, V> entry) {
+		tree.set(p, entry);				// store new entry at p
+		tree.addLeft(p, null);			// add new sentinel leaves as children
+		tree.addRight(p, null);
+	}
+}

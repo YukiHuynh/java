@@ -1,0 +1,14 @@
+package array;
+
+import java.util.Arrays;
+
+import utils.IOUtils;
+
+public class Ex08CopyArray {
+
+	public static void main(String[] args) {
+		int[] originalArray = IOUtils.randomArray();
+		System.out.println("Original array is:" + Arrays.toString(originalArray));
+	}
+	
+}

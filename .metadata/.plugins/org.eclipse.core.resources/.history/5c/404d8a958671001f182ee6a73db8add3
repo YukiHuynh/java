@@ -1,0 +1,5 @@
+package design_patterns.builder;
+
+public abstract class MazeBuilder {
+
+}

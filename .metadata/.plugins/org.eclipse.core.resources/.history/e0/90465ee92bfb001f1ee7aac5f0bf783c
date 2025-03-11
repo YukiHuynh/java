@@ -1,0 +1,21 @@
+package neetcode.arrays_and_hashing;
+
+import java.util.HashSet;
+
+public class ContainsDuplicate {
+	public static void main(String[] args) {
+		int[] nums = {1,2,3,3};
+		hasDuplicate(nums);
+	}
+	
+	public static boolean hasDuplicate(int[] nums) {
+        HashSet<Integer> seen = new HashSet<>();
+        for(int num : nums) {
+            if(seen.contains(num)) {
+                return true;
+            }
+            seen.add(num);
+        }
+        return false;
+    }
+}

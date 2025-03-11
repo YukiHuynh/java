@@ -1,0 +1,31 @@
+package chapter06;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import chapter06.Transaction.Currency;
+
+public class GroupingTransactions {
+
+	static List<Transaction> transactions = Transaction.transactions;
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+	
+	private static void groupImperatively() {
+		Map<Currency, List<Transaction>> transactionsByCurrencies = new HashMap<>();
+		for(Transaction transaction : transactions) {
+			Currency currency = transaction.getCurrency();
+			List<Transaction> transactionForCurrency = transactionsByCurrencies.get(currency);
+			if(transactionForCurrency == null) {
+				transactionForCurrency = new ArrayList<>();
+			}
+		}
+	}
+	
+}

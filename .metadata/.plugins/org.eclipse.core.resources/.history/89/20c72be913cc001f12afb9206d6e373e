@@ -1,0 +1,15 @@
+package chapter11.binary_search_trees;
+
+import chapter10.maps.AbstractSortedMap;
+
+public class TreeMap<K, V> extends AbstractSortedMap<K, V> {
+	// To represent the underlying tree structure, we use a specialized subclass of the
+	// LinkedBinaryTree class that we name BalanceableBinaryTree (see Section 11.2).
+	protected BalanceableBinaryTree<K, V> tree = new BalanceableBinaryTree<>();
+	
+	/** Constructs an empty map using the natural ordering of keys. */
+	public TreeMap() {
+		super();
+		tree.addRoot(null);
+	}
+}

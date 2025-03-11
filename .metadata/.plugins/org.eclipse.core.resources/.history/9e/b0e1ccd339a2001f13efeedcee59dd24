@@ -1,0 +1,18 @@
+package chapter06;
+
+import java.util.List;
+import java.util.Map;
+
+import bean.Dish;
+
+public class Partitioning {
+
+	public static void main(String[] args) {
+		List<Dish> menu = Dish.menu;
+	}
+	
+	private static Map<Boolean, List<Dish>> partitionByVegeterian() {
+		return menu.str
+	}
+	
+}

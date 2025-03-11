@@ -1,0 +1,16 @@
+package array;
+
+import java.util.Arrays;
+
+import utils.IOUtils;
+
+public class Ex07RemoveElementOfArray {
+
+	public static void main(String[] args) {
+		int[] array = IOUtils.randomArray();
+		System.out.println("Original array is: " + Arrays.toString(array));
+		
+		int removeIndex = IOUtils.inputInteger("Enter index to remove");
+	}
+	
+}

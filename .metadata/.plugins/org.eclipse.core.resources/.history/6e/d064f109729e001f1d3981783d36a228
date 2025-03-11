@@ -1,0 +1,25 @@
+package chapter05;
+
+import java.util.List;
+
+import bean.Dish;
+
+public class Matching {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// anyMatch()
+		if(menu.stream().anyMatch(Dish::isVegetarian)) {
+			System.out.println("The menu is (somewhat) vegetarian friendly!!");
+		}
+		
+		// allMatch()
+		String isHealthy = menu.stream().allMatch(d -> d.getCalories() < 1000) ? "Yes" : "No";
+		System.out.println(isHealthy);
+		
+		
+	}
+	
+}

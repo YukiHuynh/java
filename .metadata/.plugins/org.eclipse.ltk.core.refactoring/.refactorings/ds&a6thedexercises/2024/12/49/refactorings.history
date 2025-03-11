@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;CAPACItY&apos; in &apos;chapter6.stack.ArrayStack&apos; to &apos;CAPACITY&apos;&#x0D;&#x0A;- Original project: &apos;ds&amp;a6thedexercises&apos;&#x0D;&#x0A;- Original element: &apos;chapter6.stack.ArrayStack.CAPACItY&apos;&#x0D;&#x0A;- Renamed element: &apos;chapter6.stack.ArrayStack.CAPACITY&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;CAPACItY&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;chapter6.stack{ArrayStack.java[ArrayStack^CAPACItY" name="CAPACITY" references="true" setter="false" stamp="1733301388204" textual="false" version="1.0"/>
+</session>

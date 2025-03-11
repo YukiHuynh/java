@@ -1,0 +1,13 @@
+package calculate_expression;
+
+public class Ex03Main {
+	
+	public static void main(String[] args) {
+		// Tạo cây biểu thức: ((6 / 2) + 3) * (7 - 4)
+		TreeNode root = new TreeNode("*");
+		
+		// Cây con bên trái: (6 / 2) + 3
+		TreeNode leftSubtree = new TreeNode("-");
+	}
+
+}

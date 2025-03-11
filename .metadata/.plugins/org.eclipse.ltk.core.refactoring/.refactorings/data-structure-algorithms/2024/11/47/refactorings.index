@@ -1,0 +1,25 @@
+1731810528395	Rename type 'StackByArrayMain'
+1731810781500	Rename local variable 'obj'
+1731816658386	Rename local variable 'obj'
+1731915314031	Rename local variable 'obj'
+1731985269982	Rename type 'BinaryTree'
+1732002014815	Rename package 'tree'
+1732066724144	Rename package 'calculate_expression'
+1732066736639	Rename package 'calculate_expression.rpn'
+1732070289656	Rename local variable 'obj'
+1732070573354	Delete element
+1732091334821	Rename local variable 'obj'
+1732091362745	Rename local variable 'other'
+1732157928420	Rename local variable 'hight'
+1732158367480	Rename local variable 'privotIndex'
+1732158373476	Rename local variable 'privot'
+1732264290500	Delete element
+1732267980109	Delete element
+1732326133349	Rename local variable 'obj'
+1732326158774	Rename local variable 'other'
+1732326347965	Rename local variable 'obj'
+1732326372244	Rename local variable 'other'
+1732328896341	Infer generic type arguments
+1732328947600	Rename local variable 'obj'
+1732328951352	Rename local variable 'other'
+1732330378493	Rename local variable 'rang'

@@ -1,0 +1,24 @@
+package recursion;
+
+public class CollatzTheory {
+
+	public static void main(String[] args) {
+		
+		collatzTheory(10);
+	}
+	
+	private static void collatzTheory(int n) {
+		if(n == 1) {
+			System.out.println(n);
+		} else {
+			if(n % 2 == 0) {
+				collatzTheory(n/2);
+				System.out.println(" * 2");
+			} else {
+				collatzTheory(n * 3 + 1);
+				System.out.println(" / 3");
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,16 @@
+package recursion;
+
+public class LargestCommonDivisor {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private static int largestCommonDivisor(int a, int b) {
+		if(a == 0) {
+			return b;
+		}
+		return 
+	}
+	
+}

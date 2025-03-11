@@ -1,0 +1,49 @@
+package chapter11.binary_search_trees;
+
+import chapter07.list_and_iterator.Position;
+import chapter08_tree.AbstractBinaryTree;
+
+public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
+	//---------------- nested Node class ----------------
+	/** Nested static class for a binary tree node. */
+	protected static class Node<E> implements Position<E> {
+		private E element;				// an element stored at this node
+		private Node<E> parent;			// a reference to the parent node (if any)
+		private Node<E> left;			// a reference to the left child (if any)
+		private Node<E> right;			// a reference to the right child (if any)
+		
+		/**
+	     * Constructs a node with the given element and neighbors.
+	     *
+	     * @param e  the element to be stored
+	     * @param above       reference to a parent node
+	     * @param leftChild   reference to a left child node
+	     * @param rightChild  reference to a right child node
+	     */
+		public Node(E e, Node<E> above, Node<E> leftChild, Node<E> rightChild) {
+			this.element = e;
+			this.parent = above;
+			this.left = leftChild;
+			this.right = rightChild;
+		}
+		
+		// accessor methods
+		public E getElement() { return this.element; }
+		public Node<E> getParent() { return this.parent; }
+		public Node<E> getLeft() { return this.left; }
+		public Node<E> getRight() {return this.right; }
+		
+		// update methods
+		public void setElement(E e) { this.element = e; }
+		public void setParent(Node<E> parentNode) { this.parent = parentNode; }
+		public void setLeft(Node<E> leftChild) { this.left = leftChild; }
+		public void setRight(Node<E> rightChild) {this.right = rightChild; }
+		
+	}
+	
+	/** Factory function to create a new node storing element e. */
+	protected Node<E> createNode(E e, Node<E> parent, Node<E> left, Node<E> right) {
+		return new Node<E>(e, parent, left, right);
+	}
+	
+}

@@ -1,0 +1,18 @@
+package chapter06;
+
+import static java.util.stream.Collectors.*;
+
+import java.util.stream.IntStream;
+
+public class PartitioningPrimeNumbers {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private boolean isPrime(int n) {
+		return IntStream.range(2, n)
+						.noneMatch(i -> n % i == 0);
+	}
+	
+}

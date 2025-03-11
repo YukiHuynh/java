@@ -1,0 +1,13 @@
+package chapter06;
+
+import java.util.List;
+
+public class GroupingTransactions {
+
+	public static void main(String[] args) {
+		
+		List<Transaction> transactions = Transaction.transactions;
+		
+	}
+	
+}

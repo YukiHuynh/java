@@ -1,0 +1,5 @@
+package design_patterns.builder.bankaccount_example;
+
+public class Client {
+
+}

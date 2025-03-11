@@ -1,0 +1,15 @@
+package recursion;
+
+public class TowerOfHaNoi {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private static void move(int n, int x, int y) {
+		if(n == 1) {
+			System.out.println("Chuyển 1 đĩa từ " + x + " sang " + y);
+		}
+	}
+	
+}

@@ -1,0 +1,47 @@
+package lesson06_exercises;
+
+import java.util.Scanner;
+
+
+public class Ex01QuadraticEquation {
+
+	private static Scanner ip = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		
+	}
+	
+	private static double solveQuadraticEquation() {
+		double a = 0;
+		double b = 0;
+		boolean isValid = false;
+		double x = -b/a;
+		
+		while(!isValid) {
+			try {
+				// Nhập a từ bàn phím
+				System.out.println("Enter a: ");
+				a = Double.parseDouble(ip.nextLine());
+				
+				// kiểm tra số chia có bằng 0 không và bắt lỗi
+				if(a == 0) {
+					throw new ArithmeticException("a cannot be 0. Please enter a again: ");
+				}
+				
+				// Nhập b từ bàn phím
+				System.out.println("Enter b: ");
+				b = Double.parseDouble(ip.nextLine());
+				
+				isValid = true; // Thoát vòng lặp
+			} catch (ArithmeticException e) {
+				System.out.println("Error: " + e.getMessage());
+			} catch (NumberFormatException e) {
+				System.out.println("Error: Please enter a number.");
+			}
+		}
+		
+		return x;
+	}
+	
+}

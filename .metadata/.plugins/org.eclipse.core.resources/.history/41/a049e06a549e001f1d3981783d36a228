@@ -1,0 +1,15 @@
+package chapter05;
+
+import bean.Dish;
+
+public class Mapping {
+
+	public static void main(String[] args) {
+		
+		Dish menu = Dish.menu;
+		
+		// Applying function to each elements
+		
+	}
+	
+}

@@ -1,0 +1,18 @@
+package chapter05;
+
+import java.util.stream.Stream;
+
+public class BuildingStreams {
+
+	public static void main(String[] args) {
+		
+		// Stream from values
+		Stream<String> stream = Stream.of("Java 8 ", "Lambdas ", "In ", "Action");
+		stream.map(String::toUpperCase).forEach(System.out::println);
+		
+		// empty stream
+		Stream<String> emptyStream = Stream.empty();
+		
+	}
+	
+}

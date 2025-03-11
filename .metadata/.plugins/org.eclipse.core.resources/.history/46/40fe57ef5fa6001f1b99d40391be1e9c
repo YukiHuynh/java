@@ -1,0 +1,22 @@
+package calculate_expression;
+
+public class ExpressionTree {
+	
+	// Tính giá trị của biểu thức con tại nút gốc `node`
+	public double calculate(TreeNode node) {
+		if(node == null) {
+			throw new IllegalArgumentException("Node cannot be null");
+		}
+		
+		// Nếu nút không phải là toán tử (nó là toán hạng), trả về giá trị số
+		if(!isOperator(node.getValue())) {
+			return Double.parseDouble(node.getValue());
+		}
+		
+		// Nút là toán tử, tính giá trị của các nhánh con
+		double leftValue = calculate(node.getLeft());
+		double rightValue = calculate(node.getRight());
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package chapter09.priorityqueue;
+
+public class SortedPriorityQueue {
+
+}

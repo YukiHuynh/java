@@ -1,0 +1,5 @@
+package chapter08_tree;
+
+public class AbstractBinaryTree {
+
+}

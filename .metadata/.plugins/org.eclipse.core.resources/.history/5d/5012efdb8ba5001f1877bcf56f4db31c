@@ -1,0 +1,126 @@
+package stack_and_queue.queue;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+public class CircularQueue {
+	
+	private int[] queueArray;	// Array to store the elements of the queue
+	private int front;			// Index pointing to the Front of the queue
+	private int rear;			// Index pointing to the Rear of the queue
+	private int size;			// Current number of elements in the queue
+	private final int capacity;	// Maximum capacity of the queue
+	
+	public CircularQueue(int capacity) {
+		this.capacity = capacity;
+		this.queueArray = new int[capacity];
+		this.front = 0;
+		this.rear = front - 1;
+		this.size = 0;
+	}
+
+	public int[] getQueueArray() {
+		return queueArray;
+	}
+
+	public void setQueueArray(int[] queueArray) {
+		this.queueArray = queueArray;
+	}
+
+	public int getFront() {
+		return front;
+	}
+
+	public void setFront(int front) {
+		this.front = front;
+	}
+
+	public int getRear() {
+		return rear;
+	}
+
+	public void setRear(int rear) {
+		this.rear = rear;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void push(int value) {
+		if(size == capacity) {	// Check if the queue is full
+			System.out.println("Queue is full.");
+			return;
+		}
+		rear = (rear - 1) % capacity;	// Circular increment of the rear index
+		queueArray[rear] = value;
+		size++;
+	}
+	
+	public int pop() {
+		if(size == 0) {	// Check if the queue is empty
+			System.out.println("Queue is empty.");
+			return -1;	// Return a default value for an empty queue
+		}
+		int value = queueArray[front];
+		front = (front + 1) % capacity;	// Circular increment of the front index
+		size--;
+		return value;
+	}
+	
+	public void display() {
+		if(size == 0) {
+			System.out.println("Queue is empty.");
+			return;
+		}
+		System.out.println("Queue elements: ");
+		for(int i = 0; i < size; i++) {
+			System.out.println(queueArray[(front + i) % capacity] + " ");
+		}
+		System.out.println();
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(queueArray, front, rear, size, capacity);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (getClass() != o.getClass())
+			return false;
+		CircularQueue that = (CircularQueue) o;
+		return capacity == that.capacity && 
+			   front == that.front && 
+			   rear == that.rear && 
+			   Objects.equals(queueArray, that.queueArray) && 
+			   size == that.size;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("CircularQueue{");
+		sb.append("queueArray=[");
+		for(int i = 0; i < size; i++) {
+			sb.append(queueArray[(front + i) % capacity]);
+			if(i < size - 1) sb.append(", ");
+		}
+		sb.append("], front=").append(front)
+		  .append(", rear=").append(rear)
+		  .append(", size=").append(size)
+		  .append(", capacity=").append(capacity)
+		  .append("}");
+		return super.toString();
+	}
+
+}

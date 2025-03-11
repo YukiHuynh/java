@@ -1,0 +1,64 @@
+package stack_and_queue.queue;
+
+public class Queue {
+
+	private int[] queueArray;			// Array to strore the elements of the queue
+	private int front;					// Front index of the queue
+	private int rear;					// Rear index of the queue
+	private final int capacity; // Maximum capacity of the queue
+	
+	// Constructor
+	public Queue(int capacity) {
+		this.capacity = capacity;
+		this.queueArray = new int[capacity];
+		this.front = 0;
+		this.rear = -1;	// Start rear before the first index
+	}
+
+	public int[] getQueueArray() {
+		return queueArray;
+	}
+
+	public int getFront() {
+		return front;
+	}
+
+	public int getRear() {
+		return rear;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+	
+	// Push an element into the queue
+	public void push(int value) {
+		if(rear == capacity - 1) {	// Check if queue if full
+			System.out.println("Queue is full (Overflow)");
+			return;
+		}
+		queueArray[++rear] = value;	// Increment rear and insert the value
+	}
+	
+	// Pop an element from the queue
+	public int pop() {
+		if(front > rear) {	// Check if queue is empty
+			System.out.println("Queue is empty");
+			return -1;		// Return a default value for an empty queue
+		}
+		return queueArray[front++];	// Return the front value and increment the front index
+	}
+	
+	// Display the elements of the queue
+	public void display() {
+		if(front > rear) {
+			System.out.println("Queue is empty.");
+			return;
+		}
+		System.out.println("Queue elements: ");
+		for(int i = front; i <= rear; i++) {
+			System.out.print(queueArray[i] + " ");
+		}
+	}
+	
+}

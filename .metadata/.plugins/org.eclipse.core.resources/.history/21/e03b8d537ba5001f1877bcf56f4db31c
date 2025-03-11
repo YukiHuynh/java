@@ -1,0 +1,17 @@
+package stack_and_queue.queue;
+
+public class CircularQueue {
+	
+	private int[] queueArray;	// Array to store the elements of the queue
+	private int front;			// Index pointing to the Front of the queue
+	private int rear;			// Index pointing to the Rear of the queue
+	private int size;			// Current number of elements in the queue
+	private final int capacity;	// Maximum capacity of the queue
+	
+	public CircularQueue(int capacity) {
+		this.capacity = capacity;
+		this.queueArray = queueArray;
+		this.front = 0;
+	}
+
+}

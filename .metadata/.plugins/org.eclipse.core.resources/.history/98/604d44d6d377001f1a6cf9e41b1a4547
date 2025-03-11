@@ -1,0 +1,24 @@
+package design_patterns.builder.bankaccount_example;
+
+public class BankAccount {
+
+	private final String name; // required
+	private final String accountNumber; // requried
+	private final String address;
+	private final String email;
+	private final boolean newsletter;
+	private final boolean mobileBanking;
+	
+	public BankAccount(String name, String accountNumber, String address, String email, 
+			boolean newsletter, boolean mobileBanking) {
+		this.name = name;
+		this.accountNumber = accountNumber;
+		this.address = address;
+		this.email = email;
+		this.newsletter = newsletter;
+		this.mobileBanking = mobileBanking;
+	}
+	
+	
+	
+}

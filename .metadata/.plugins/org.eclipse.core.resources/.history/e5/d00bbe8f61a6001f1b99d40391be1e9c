@@ -1,0 +1,32 @@
+package calculate_expression;
+
+public class Ex03Main {
+	
+	public static void main(String[] args) {
+		// Tạo cây biểu thức: ((6 / 2) + 3) * (7 - 4)
+		TreeNode root = new TreeNode("*");
+		
+		// Cây con bên trái: (6 / 2) + 3
+		TreeNode leftSubtree = new TreeNode("+");
+		TreeNode division = new TreeNode("/");
+		division.setLeft(new TreeNode("6"));
+		division.setRight(new TreeNode("2"));
+		leftSubtree.setRight(new TreeNode("3"));
+		
+		// Cây con bên phải: 7 - 4
+		TreeNode rightSubtree = new TreeNode("-");
+		rightSubtree.setLeft(new TreeNode("7"));
+		rightSubtree.setRight(new TreeNode("4"));
+		
+		// Nút gốc trái và phải
+		root.setLeft(leftSubtree);
+		root.setRight(rightSubtree);
+		
+		// Tính toán giá trị
+		ExpressionTree expressionTree = new ExpressionTree();
+		double result = expressionTree.calculate(root);
+		System.out.println("Result: " + result);
+		
+	}
+
+}

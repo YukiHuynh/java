@@ -1,0 +1,31 @@
+package exercises.builder.exercise01;
+
+public class Person {
+
+	private String name; // required
+	private int age; // required
+	private String address;
+	private String phoneNumber;
+		
+	public Person() {
+	}
+	
+	private Person(Builder builder) {
+		
+	}
+	
+	public static class Builder {
+		private String name; // required
+		private int age; // required
+		private String address;
+		private String phoneNumber;
+		
+		private Builder(String name, int age) {
+			this.name = name;
+			this.age = age;
+		}
+	}
+	
+}
+	
+

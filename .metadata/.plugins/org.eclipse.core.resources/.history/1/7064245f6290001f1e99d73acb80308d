@@ -1,0 +1,68 @@
+package chapter1.reinforcement;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class R01AllBaseType {
+
+	public static void main(String[] args) {
+		
+		inputAllBaseType();
+		
+	}
+	
+	private static void inputAllBaseType() {
+		List<Object> list = new ArrayList<>();
+		
+		Scanner ip = new Scanner(System.in);
+		
+		System.out.println("Enter a numer (int):");
+		int number = ip.nextInt();
+		list.add(number);
+		ip.nextLine();
+		
+		System.out.println("Enter a number (short):");
+		short shorts = ip.nextShort();
+		list.add(shorts);
+		ip.nextLine();
+		
+		System.out.println("Enter a number (long):");
+		long longs = ip.nextLong();
+		list.add(longs);
+		ip.nextLine();
+		
+		System.out.println("Enter a number (double):");
+		double dbt = ip.nextDouble();
+		list.add(dbt);
+		ip.nextLine();
+		
+		System.out.println("Enter a number (float):");
+		float flt = ip.nextFloat();
+		list.add(flt);
+		ip.next();
+		
+		System.out.println("True or Flase");
+		boolean isTrue = ip.nextBoolean();
+		list.add(isTrue);
+		ip.next();
+		
+		System.out.println("Enter some byte:");
+		byte b = ip.nextByte();
+		list.add(b);
+		ip.next();
+		
+		System.out.println("Enter a string:");
+		String s = ip.nextLine();
+		list.add(s);
+		
+		list.size();
+		
+		for(Object element : list) {
+			System.out.println(element);
+		}
+		
+		ip.close();
+	}
+	
+}

@@ -1,0 +1,24 @@
+1721523260610	Rename package 'exeptionhandling'
+1721523269100	Rename type 'Ex01ExeptionHandlingWithTryCatch'
+1721523276288	Rename type 'Ex02ExeptionOddsNumber'
+1721526334852	Rename local variable 'size'
+1721532929526	Rename local variable 'inputIteger'
+1721549393804	Rename type 'Ex14FindCommonElements'
+1721550866589	Rename type 'main'
+1721550971267	Move compilation units
+1721554511287	Rename field 'name'
+1721979138424	Rename type 'CircleEx01'
+1721979251575	Rename type 'CircleEx02'
+1721979262222	Rename field 'length'
+1721979268974	Rename field 'width'
+1721979305775	Rename type 'Triangle'
+1721979321376	Rename compilation unit 'RectangleEx02.java'
+1721982458188	Delete element
+1721982915888	Rename type 'Ex17FindLargestElement'
+1721983066922	Rename type 'Ex01'
+1721983240646	Rename type 'Ex02FindEvenOddNuber'
+1721984240451	Rename field 'isEven'
+1721987297121	Rename type 'MatrixMultiplication'
+1722043813132	Rename type 'WebCrawler'
+1722045983297	Delete element
+1722046108246	Delete element

@@ -1,0 +1,29 @@
+package data_structure_and_algorithms.basic_steps;
+
+import java.util.Scanner;
+
+public class Ex01GreatestCommonDivisor {
+
+	public static void main(String[] args) {
+		
+		Scanner ip = new Scanner(System.in);
+		System.out.println("Enter a: ");
+		int a = ip.nextInt();
+		System.out.println("Enter b: ");
+		int b = ip.nextInt();
+		ip.close();
+		
+		System.out.println("The Greatest Common Divisor (GCD) of " + a + " and " + b + " is: " + findGCD(a, b));
+		
+	}
+	
+	public static int findGCD(int a, int b) {
+		while(b != 0) {
+			int remainder = a % b;
+			a = b;
+			b = remainder;
+		}
+		return Math.abs(a);
+	}
+	
+}

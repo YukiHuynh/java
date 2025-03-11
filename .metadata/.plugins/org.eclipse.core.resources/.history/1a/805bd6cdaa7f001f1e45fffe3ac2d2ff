@@ -1,0 +1,55 @@
+package selection;
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Ex01SelectionSortPrimitiveDemo {
+
+	public static void main(String[] args) {
+		
+		int[] originArray = generateRandomArray(10);
+		System.out.println(Arrays.toString(originArray));
+		
+		selectionSort(originArray);
+		printf(originArray);
+		
+	}
+	
+	private static int[] generateRandomArray(int n) {
+		
+		Random rd = new Random();
+		int[] origin = new int[n];
+		
+		for(int i = 0; i < n; i++) {
+			origin[i] = rd.nextInt(100);
+		}
+		
+		return origin;
+	}
+	
+	private static void selectionSort(int[] origin) {
+		int n = origin.length;
+		for(int i = 0; i < n - 1; i++) {
+			int minIdex = i;
+			for(int j = i + 1; j < n; j++) {
+				if(origin[j] < origin[minIdex]) {
+					minIdex = j;
+				}
+				
+				if(minIdex !=i) {
+					int temp = origin[i];
+					origin[i] = origin[minIdex];
+					origin[minIdex] = temp;
+				}
+			}
+		}
+	}
+	
+	private static void printf(int[] array) {
+		for(int val : array) {
+			System.out.print(val + " ");
+		}
+		System.out.println();
+	}
+	
+}

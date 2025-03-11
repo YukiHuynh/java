@@ -1,0 +1,18 @@
+package chapter05;
+
+import java.util.List;
+
+import bean.Dish;
+
+public class Mapping {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// Applying function to each elements
+		
+		
+	}
+	
+}

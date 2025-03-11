@@ -1,0 +1,54 @@
+package chapter05;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
+
+import java.util.Arrays;
+
+import bean.Dish;
+
+public class Mapping {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// Applying function to each elements
+		List<String> dishNames = menu.stream().map(Dish::getName).collect(toList());
+		System.out.println(dishNames + "\n");
+		
+		// Return a list of number of characters for each word
+		List<String> words = Arrays.asList("Java8", "Lambdas", "In", "Action");
+		List<Integer> wordLength = words.stream().map(String::length).collect(toList());
+		System.out.println(wordLength + "\n");
+		
+		// Find the length of each dish's name
+		List<Integer> dishNameLength = menu.stream().map(Dish::getName).map(String::length).collect(toList());
+		System.out.println(dishNameLength + "\n");
+		
+		// map().distinct()
+		words = Arrays.asList("Hello", "World");
+		words.stream().map(word -> word.split("")).distinct().collect(toList());
+		System.out.println(words + "\n");
+		
+		// map() and Arrays.stream
+		words.stream().map(word -> word.split("")).map(Arrays::stream).distinct().collect(toList());
+		System.out.println(words + "\n");
+		
+		List<String> uniqueCharacters = words.stream().map(w -> w.split("")).flatMap(Arrays::stream)
+				.distinct().collect(Collectors.toList());
+		System.out.println(uniqueCharacters + "\n");
+		
+		// Quiz 5.2
+		List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5);
+		List<Integer> squares = listOfNumbers.stream().map(number -> number * number).collect(toList());
+		System.out.println("1. " + squares + "\n");
+		
+		
+		
+		
+	}
+	
+}

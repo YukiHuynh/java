@@ -1,0 +1,15 @@
+package chapter1.reinforcement;
+
+import java.util.Random;
+
+public class R01AllBaseType {
+
+	public static void main(String[] args) {
+		
+	}
+	
+	private static void inputAllBaseType() {
+		Random rd = new Random(System.in);
+	}
+	
+}

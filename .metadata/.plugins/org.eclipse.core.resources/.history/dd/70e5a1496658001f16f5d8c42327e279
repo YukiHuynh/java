@@ -1,0 +1,13 @@
+package lesson06_exercises;
+
+import java.util.Scanner;
+
+public class Ex03EmailValidation {
+
+	private static Scanner ip = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

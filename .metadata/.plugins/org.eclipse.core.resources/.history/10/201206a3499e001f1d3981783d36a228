@@ -1,0 +1,20 @@
+package chapter05;
+
+import java.util.List;
+import static java.util.stream.Collectors.*;
+
+import bean.Dish;
+
+public class Filtering {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// filtering with predicate
+		List<Dish> vegetarianMenu = menu.stream().filter(Dish::isVegetarian).collect(toList());
+		System.out.println(vegetarianMenu);
+		
+	}
+	
+}

@@ -1,0 +1,28 @@
+package lesson06_exercises;
+
+import java.util.Scanner;
+
+public class Ex03EmailValidation {
+
+	private static Scanner ip = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+	
+	private static boolean isValidEmail(String email) {
+		// Kiểm tra có ký tự @ không
+		if(!email.contains("@")) {
+			throw new Exception("Email must contain '@'.");
+		}
+		
+		// Tách email thành prefix và domain
+		String[] parts = email.split("@");
+		if(parts.length != 2) {
+			throw new Exception("Email must contain exactly one '@'.");
+		}
+	}
+	
+}

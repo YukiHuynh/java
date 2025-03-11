@@ -1,0 +1,25 @@
+package design_patterns.builder.pizza_example;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class OrderBuilder {
+
+	public OrderedItems preparePizza() throws IOException {
+
+		OrderedItems itemdsOrder = new OrderedItems();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Enter the choice of Pizza");
+		System.out.println("============================");
+		System.out.println("        1. Veg-Pizza       ");
+		System.out.println("        2. Non-Veg Pizza   ");
+		System.out.println("        3. Exit            ");
+		System.out.println("============================");
+		
+		int pizzaAndColdDrinkChoice = Integer.parseInt(br.readLine())
+
+	}
+
+}

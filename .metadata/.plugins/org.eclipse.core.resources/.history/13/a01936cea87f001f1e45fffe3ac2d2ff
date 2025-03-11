@@ -1,0 +1,23 @@
+package selection;
+
+import bean.Item;
+import model.DataModel;
+
+public class Ex03SelectionSortItemDemo {
+
+	public static void main(String[] args) {
+		Item[] items = DataModel.mockItems();
+		
+		printf("Initial items", items);
+		
+	}
+	
+	private static void printf(String prefix, Item[] items) {
+		System.out.println(prefix + " --> {");
+		for(Item item : items) {
+			System.out.println("    + " + item);
+		}
+		System.out.println("}\n");
+	}
+	
+}

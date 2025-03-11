@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 3 elements from project &apos;lesson10-exercises&apos;&#x0D;&#x0A;- Original project: &apos;lesson10-exercises&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     functional.CustomComparator.java&#x0D;&#x0A;     functional.Sort.java&#x0D;&#x0A;     functional.StringComparator.java" description="Delete elements" element1="/src&lt;functional{Sort.java" element2="/src&lt;functional{CustomComparator.java" element3="/src&lt;functional{StringComparator.java" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1728373047391" subPackages="false" version="1.0"/>
+</session>

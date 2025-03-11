@@ -1,0 +1,18 @@
+package stack_and_queue.queue;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Queue queue = new Queue(10); // Initialize a queue with capacity 10
+		
+		queue.push(10);
+		queue.push(20);
+		queue.push(30);
+		
+		queue.display();
+		System.out.println(queue);
+		
+	}
+	
+}

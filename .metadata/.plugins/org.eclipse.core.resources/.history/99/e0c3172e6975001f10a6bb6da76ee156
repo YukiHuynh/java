@@ -1,0 +1,81 @@
+package design_patterns.builder.pizza_example;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class OrderBuilder {
+
+	public OrderedItems preparePizza() throws IOException {
+
+		OrderedItems itemsOrder = new OrderedItems();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Enter the choice of Pizza");
+		System.out.println("============================");
+		System.out.println("        1. Veg-Pizza       ");
+		System.out.println("        2. Non-Veg Pizza   ");
+		System.out.println("        3. Exit            ");
+		System.out.println("============================");
+
+		int pizzaAndColdDrinkChoice = Integer.parseInt(br.readLine());
+		switch (pizzaAndColdDrinkChoice) {
+		case 1:
+			System.out.println("You ordered Veg Pizza");
+			System.out.println("\n\n");
+			System.out.println(" Enter the types of Veg-Pizza ");
+			System.out.println("------------------------------");
+			System.out.println("        1.Cheeze Pizza        ");
+			System.out.println("        2.Onion Pizza        ");
+			System.out.println("        3.Masala Pizza        ");
+			System.out.println("        4.Exit            ");
+			System.out.println("------------------------------");
+			
+			int vegPizzaChoice = Integer.parseInt(br.readLine());
+			switch(vegPizzaChoice) {
+			case 1:
+			{
+				System.out.println("You ordered Cheeze Pizza");
+				System.out.println("Enter the cheeze pizza size");
+				System.out.println("------------------------------------");
+				System.out.println("    1. Small Cheeze Pizza ");
+				System.out.println("    2. Medium Cheeze Pizza ");
+				System.out.println("    3. Large Cheeze Pizza ");
+				System.out.println("    4. Extra-Large Cheeze Pizza ");
+				System.out.println("------------------------------------");
+				
+				int cheezePizzaSize = Integer.parseInt(br.readLine());
+				switch(cheezePizzaSize) {
+				case 1:
+					itemsOrder.addItem(new SmallCheezePizza());
+					break;
+				case 2:
+					itemsOrder.addItem(new MidiumCheezePizza());
+					break;
+				case 3:
+					itemsOrder.addItem(new LargeCheezePizza());
+					break;
+				case 4:
+					itemsOrder.addItem(new ExtraLargeCheezePizza());
+					break;
+				}
+			}
+			case 2: {
+				System.out.println("You ordered Onion Pizza");
+				System.out.println("Enter the Onion pizza size");
+				System.out.println("----------------------------------");
+				System.out.println("    1. Small Onion Pizza ");
+				System.out.println("    2. Medium Onion Pizza ");
+				System.out.println("    3. Large Onion Pizza ");
+				System.out.println("    4. Extra-Large Onion Pizza ");
+				System.out.println("----------------------------------");
+				
+				int onionPizzaSize = Integer.parseInt(br.readLine())
+			}
+			 
+			}
+		}
+
+	}
+
+}

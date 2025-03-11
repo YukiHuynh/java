@@ -1,0 +1,20 @@
+package chapter08_tree;
+
+import chapter07.list_and_iterator.Position;
+
+public class AbstractBinaryTree<E> extends AbstractTree<E> implements BinaryTree<E> {
+
+	public Position<E> sibling(Position<E> p) {
+		Position<E> parent = parent(p);
+		if(parent == null) {
+			return null;
+		}
+		
+		if(p == left(parent)) {
+			return right(parent);
+		} else {
+			return left(parent);
+		}
+	}
+	
+}

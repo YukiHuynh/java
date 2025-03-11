@@ -1,0 +1,15 @@
+package chapter06;
+
+import java.util.List;
+
+import bean.Dish;
+
+public class Grouping {
+
+	static List<Dish> menu = Dish.menu;
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

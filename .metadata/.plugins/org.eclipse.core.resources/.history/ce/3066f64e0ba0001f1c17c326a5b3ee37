@@ -1,0 +1,16 @@
+package chapter06;
+
+import java.util.List;
+
+import static java.util.stream.Collectors.*;
+import bean.Dish;
+
+public class Grouping {
+
+	static List<Dish> menu = Dish.menu;
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

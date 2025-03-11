@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;stream&apos; to &apos;java8InAction&apos;" description="Rename resource &apos;stream&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/stream" name="java8InAction" stamp="1731029393941" updateReferences="true"/>
+</session>

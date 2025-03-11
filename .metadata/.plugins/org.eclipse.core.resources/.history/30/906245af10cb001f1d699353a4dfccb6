@@ -1,0 +1,8 @@
+package chapter10.maps;
+
+import java.util.List;
+import java.util.Map;
+
+public class HashMultimap<K, V> {
+	java.util.Map<K, List<V>> map
+}

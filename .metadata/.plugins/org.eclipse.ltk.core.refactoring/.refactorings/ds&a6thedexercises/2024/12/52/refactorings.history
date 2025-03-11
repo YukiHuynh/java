@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;chapter07.list_and_iterator.LinkedPositionalList.position(...)&apos; to &apos;positions&apos;&#x0D;&#x0A;- Original project: &apos;ds&amp;a6thedexercises&apos;&#x0D;&#x0A;- Original element: &apos;chapter07.list_and_iterator.LinkedPositionalList.position(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;chapter07.list_and_iterator.LinkedPositionalList.positions(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;position&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;chapter07.list_and_iterator{LinkedPositionalList.java[LinkedPositionalList~position~QNode\&lt;QE;&gt;;" name="positions" references="true" stamp="1734934067255" version="1.0"/>
+</session>

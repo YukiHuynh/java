@@ -1,0 +1,21 @@
+package chapter16.dynamic_programming;
+
+public class DynamicProgrammingAlgorithm {
+
+	public static int[][] matrixChain(int[] d) {
+		int n = d.length-1;						// number of matrices
+		int[][] N = new int[n][n];				// n-by-n matrix; initially zeros
+		for(int b = 1; b < n; b++) {			// number of products in subchain
+			for(int i = 0; i < n; i++) {		// start of subchain
+				int j = i + b;					// end of subchain
+				N[i][j] = Integer.MAX_VALUE;	// used as ’infinity’
+				for(int k = i; k < j; k++) {
+					N[i][j] = Math.min(N[i][j], N[i][k] + N[k][j] + d[i]*d[k+1]*d[j+1]);
+				}
+			}
+			
+		}
+		return N;
+	}
+	
+}

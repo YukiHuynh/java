@@ -1,0 +1,28 @@
+package chapter06;
+
+import java.util.List;
+import java.util.Optional;
+
+import static java.util.stream.Collectors.*;
+
+import java.util.Comparator;
+
+import bean.Dish;
+
+public class Summarizing {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		System.out.println("Number of dishes: " + (menu.stream().count()) + "\n");
+		
+		Comparator<Dish> dishCaloriesComparator = Comparator.comparing(Dish::getCalories);
+		Optional<Dish> mostCalories = menu.stream().collect(maxBy(dishCaloriesComparator));
+		System.out.println("Highest calory dish: " + mostCalories + "\n");
+		
+		System.out.println("Total calories: " + (menu.stream().collect(summingInt(Dish::getCalories))) + "\n");
+		
+	}
+	
+}

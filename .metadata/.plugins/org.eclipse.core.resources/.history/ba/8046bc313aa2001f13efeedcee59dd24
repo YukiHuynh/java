@@ -1,0 +1,23 @@
+package chapter06;
+
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import bean.Dish;
+
+public class Partitioning {
+
+	static List<Dish> menu = Dish.menu;
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Partitioning menu by vegeterian: " + partitionByVegeterian());
+		
+	}
+	
+	private static Map<Boolean, List<Dish>> partitionByVegeterian() {
+		return menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian));
+	}
+	
+}

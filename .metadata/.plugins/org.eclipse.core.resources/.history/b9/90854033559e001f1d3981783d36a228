@@ -1,0 +1,19 @@
+package chapter05;
+
+import java.util.List;
+import static java.util.stream.Collectors.*;
+import bean.Dish;
+
+public class Mapping {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// Applying function to each elements
+		List<String> dishNames = menu.stream().map(Dish::getName).collect(toList());
+		System.out.println(dishNames + "\n");
+		
+	}
+	
+}

@@ -1,0 +1,29 @@
+package chapter05;
+
+import java.util.List;
+import java.util.Optional;
+
+import bean.Dish;
+
+public class FindingAndMatching {
+
+	public static void main(String[] args) {
+		
+		List<Dish> menu = Dish.menu;
+		
+		// anyMatch()
+		if(menu.stream().anyMatch(Dish::isVegetarian)) {
+			System.out.println("The menu is (somewhat) vegetarian friendly!!\n");
+		}
+		
+		// allMatch()
+		String isHealthy = menu.stream().allMatch(d -> d.getCalories() < 1000) ? "Yes" : "No";
+		System.out.println(isHealthy);
+		
+		// findAny()
+		Optional<Dish> dish = menu.stream().filter(Dish::isVegetarian).findAny()
+				.ifPresent(d -> System.out.println(name));
+		
+	}
+	
+}

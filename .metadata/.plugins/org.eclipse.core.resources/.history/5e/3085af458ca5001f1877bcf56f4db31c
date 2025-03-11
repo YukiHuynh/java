@@ -1,0 +1,73 @@
+package stack_and_queue.queue;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Queue queue = new Queue(10); // Initialize a queue with capacity 10
+		
+		queue.push(10);
+		queue.push(20);
+		queue.push(30);
+		
+		// Display queue
+		queue.display();
+		System.out.println(queue);
+		
+		// Pop elements from the queue
+        System.out.println("Popped: " + queue.pop());
+        queue.display();
+        System.out.println(queue);
+
+        System.out.println("Popped: " + queue.pop());
+        queue.display();
+        System.out.println(queue);
+
+        System.out.println("Popped: " + queue.pop());
+        queue.display();
+        System.out.println(queue);
+
+        // Test popping from an empty queue
+        System.out.println("Popped: " + queue.pop());
+        
+        System.out.println("\n=====================CirularQueueu=====================\n");
+        
+        CircularQueue cQueue = new CircularQueue(5);	// Initialize queue with capacity 5
+        // Push elements into the queue
+        cQueue.push(10);
+        cQueue.push(20);
+        cQueue.push(30);
+        cQueue.push(40);
+        cQueue.push(50);
+
+        // Display queue
+        cQueue.display();
+        System.out.println(cQueue);
+
+        // Pop elements from the queue
+        System.out.println("Popped: " + cQueue.pop());
+        System.out.println("Popped: " + cQueue.pop());
+
+        // Display queue after popping
+        cQueue.display();
+        System.out.println(cQueue);
+
+        // Push more elements to test circular functionality
+        cQueue.push(60);
+        cQueue.push(70);
+
+        // Display queue after pushing
+        cQueue.display();
+        System.out.println(cQueue);
+
+        // Test popping all elements
+        while (cQueue.getSize() > 0) {
+            System.out.println("Popped: " + cQueue.pop());
+        }
+
+        // Attempt to pop from an empty queue
+        System.out.println("Popped: " + cQueue.pop());
+		
+	}
+	
+}
