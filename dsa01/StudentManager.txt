@@ -1,0 +1,15 @@
+Tên: Tran Van K, Lớp: 10A4, SĐT: 0999999999, Điểm TB: 9.5, Xếp loại: Xuất sắc
+Tên: Phan Van A, Lớp: 10A3, SĐT: 0923131314, Điểm TB: 9.2, Xếp loại: Xuất sắc
+Tên: Le Thi C, Lớp: 10A1, SĐT: 0911111111, Điểm TB: 9.0, Xếp loại: Xuất sắc
+Tên: Nguyen Van F, Lớp: 10A4, SĐT: 0944444444, Điểm TB: 8.7, Xếp loại: Xuất sắc
+Tên: Nguyen Van A, Lớp: 10A1, SĐT: 0123456789, Điểm TB: 8.5, Xếp loại: Xuất sắc
+Tên: Hoang Thi M, Lớp: 10A1, SĐT: 0912121212, Điểm TB: 8.4, Xếp loại: Giỏi
+Tên: Dang Van H, Lớp: 10A1, SĐT: 0966666666, Điểm TB: 8.0, Xếp loại: Giỏi
+Tên: Hoang Van D, Lớp: 10A2, SĐT: 0922222222, Điểm TB: 7.5, Xếp loại: Giỏi
+Tên: Vu Van J, Lớp: 10A3, SĐT: 0988888888, Điểm TB: 7.2, Xếp loại: Giỏi
+Tên: Bui Thi I, Lớp: 10A2, SĐT: 0977777777, Điểm TB: 6.9, Xếp loại: Trung bình
+Tên: Tran Van B, Lớp: 10A2, SĐT: 0987654321, Điểm TB: 6.8, Xếp loại: Trung bình
+Tên: Nguyen Van N, Lớp: 10A3, SĐT: 0923131313, Điểm TB: 6.5, Xếp loại: Trung bình
+Tên: Tran Thi E, Lớp: 10A3, SĐT: 0933333333, Điểm TB: 6.0, Xếp loại: Trung bình
+Tên: Pham Thi G, Lớp: 10A5, SĐT: 0955555555, Điểm TB: 5.8, Xếp loại: Trung bình
+Tên: Le Thi L, Lớp: 10A5, SĐT: 0900000000, Điểm TB: 5.2, Xếp loại: Trung bình
